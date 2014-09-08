@@ -26,7 +26,7 @@ window.addEventListener( "deviceorientation", function( sensor ) {
 
     if( deg < 0 ) deg += 360;
 
-    document.body.innerHTML = deg - deviceDirection;
-    vibration( deg - deivceDirection );
+    document.body.innerHTML += ( "角度" + ( deviceDirection - deg ) );
+    vibration( deviceDirection - deg );
 
 }, false);
