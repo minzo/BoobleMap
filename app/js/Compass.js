@@ -4,6 +4,8 @@
 //
 //==============================================================================
 
+gCount = 0;
+
 window.addEventListener( "deviceorientation", function( sensor ) {
 
     var deviceDirection;
@@ -26,6 +28,10 @@ window.addEventListener( "deviceorientation", function( sensor ) {
 
     if( deg < 0 ) deg += 360;
 
-    vibration( deviceDirection - deg );
+    if( gCount == 0 ) {
+        vibration( deviceDirection - deg );
+    }
+
+    gCount = ( gCount + 1 ) % 10;
 
 }, false);
