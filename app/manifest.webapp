@@ -1,13 +1,16 @@
 {
-    "version"    : "0.1",
-    "name"       : "Booble Map",
-    "description": "The navigation system using vibration",
-    "launch_path": "/index.html",
-    "developer"  : {
-        "name" : "CHUO-U-OpenProject",
-        "url"  : ""
-    },
-    "installs_allowed_from": ["*"],
-    "permissions": {
-    }
+  "version": "0.1",
+  "name": "Booble Map",
+  "description": "The navigation system using vibration",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "CHUO-U-OpenProject",
+    "url": ""
+  },
+  "installs_allowed_from": [
+    "*"
+  ],
+  "permissions": {
+    "geolocation": {}
+  }
 }
