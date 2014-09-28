@@ -13,7 +13,14 @@
   </head>
   <body onload="initialize()">
     <div id="out"></div>
+    <div id="dest_form">
+      <form name="destination">
+        <input type="text" name="destination_text_box" value="六本木7-5-6">
+        <input type="button" value="設定" onclick="set_destination()">
+      </form>
+    </div>
     <div id="map_canvas" style="width: 300px;height: 300px"></div>
-    <input type="button" value="location" onclick="update()"></input>
+    <!--div id="route" style="width: 300px;height:150px;overflow:scroll"></div-->
+    <input type="button" value="current_location" onclick="current_position()"></input>
   </body>
 </html>
