@@ -74,6 +74,9 @@ function set_destination () {
       map.setCenter(results[0].geometry.location);
 
       var latlng = results[0].geometry.location;
+      //Compass
+      destinate_location = latlng;
+
       new google.maps.Marker({
         position: latlng,
         map:map
@@ -84,7 +87,9 @@ function set_destination () {
 
 var watcherID = navigator.geolocation.watchPosition( function (position) {
   var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-  
+  //Compass
+  current_location = latlng;
+
   if ( !marker ) {  
     var marker = new google.maps.Marker({
       position: latlng,

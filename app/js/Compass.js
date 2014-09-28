@@ -6,32 +6,45 @@
 
 gCount = 0;
 
-window.addEventListener( "deviceorientation", function( sensor ) {
+var current_location;
+var destinate_location;
 
-    var deviceDirection;
+function compass ( sensor ) {
+  var deviceDirection;
 
-    //  for iOS
-    if( sensor.webkitCompassHeading != undefined ) {
-        deviceDirection = sensor.webkitCompassHeading;
+  //  for iOS
+  if( sensor.webkitCompassHeading != undefined ) {
+    deviceDirection = sensor.webkitCompassHeading;
+  }
+
+  //  for Firefox OS
+  else if( sensor.alpha >= 0 ) {
+    deviceDirection = sensor.alpha;
+  }
+
+  if(destinate_location) {  
+
+    var latitude_diff  = destinate_location.k  - current_location.k;
+    var longitude_diff = destinate_location.A - current_location.A;
+    var deg            = Math.atan2( latitude_diff, longitude_diff ) * 180 / Math.PI;
+
+    console.log("deg1 = " + deg);
+    console.log("dD = " + deviceDirection);
+    deg = deviceDirection - deg;
+    console.log("deg2 = " + deg);
+
+    if( deg < 0 ){
+      deg += 360;
+    } else if (deg > 360){
+      deg -= 360;
     }
-
-    //  for Firefox OS
-    else if( sensor.alpha >= 0 ) {
-        deviceDirection = sensor.alpha;
-    }
-
-    var current   = { latitude:0, longitude:0 };
-    var goal      = { latitude:0, longitude:1 };
-    var latitude  = goal.latitude  - current.latitude;
-    var longitude = goal.longitude - current.longitude;
-    var deg       = Math.radToDeg( Math.atan2( latitude, longitude ) );
-
-    if( deg < 0 ) deg += 360;
 
     if( gCount == 0 ) {
-        vibration( deviceDirection - deg );
+      vibration( deg );
     }
 
     gCount = ( gCount + 1 ) % 10;
+  }
+}
 
-}, false);
+window.addEventListener( "deviceorientation", compass, false);
