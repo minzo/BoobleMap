@@ -28,21 +28,18 @@ function compass ( sensor ) {
     var longitude_diff = destinate_location.A - current_location.A;
     var deg            = Math.atan2( latitude_diff, longitude_diff ) * 180 / Math.PI;
 
-    console.log("deg1 = " + deg);
-    console.log("dD = " + deviceDirection);
-    deg = deviceDirection - deg;
-    console.log("deg2 = " + deg);
-
-    if( deg < 0 ){
-      deg += 360;
-    } else if (deg > 360){
-      deg -= 360;
-    }
+    output.innerHTML = "device direction = " + deviceDirection + "</br>";
+    output.innerHTML += "deg = " + deg + "</br>";
+    deg = (deg + 270) % 360;
+    output.innerHTML += "deg from north = " + deg + "</br>";
+    deg = deg - deviceDirection;
+    if (deg < 0) deg = deg + 360;
+    output.innerHTML += "deg from dev dir = " + deg + "</br>";
 
     if( gCount == 0 ) {
       vibration( deg );
     }
-
+    
     gCount = ( gCount + 1 ) % 10;
   }
 }
