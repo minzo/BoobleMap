@@ -17,6 +17,9 @@
   <body onload="initialize()">
     <div id="dest_form">
       <form name="destination">
+        <input type="text" name="destination_text_box" value="目的地を選ぶor入力" onfocus="if(this.value==this.defaultValue){this.value=''}" onblur="if(this.value==''){this.value=this.defaultValue}" class="textforms">
+
+        <input type="button" value="設定" onclick="set_destination()" class="formbutton">
         <select name="destination_pulldown" class="pulldownforms">
           <option value="東京ディズニーランド">東京ディズニーランド</option>
           <option value="ビックサイト">ビックサイト</option>
@@ -25,8 +28,7 @@
           <option value="中央大学理工学部">中央大学理工学部</option>
           <option value="" selected>目的地をリストから選ぶ</option>
         </select>
-        <input type="text" name="destination_text_box" value="目的地を選ぶor入力" onfocus="if(this.value==this.defaultValue){this.value=''}" onblur="if(this.value==''){this.value=this.defaultValue}" class="textforms">
-        <input type="button" value="設定" onclick="set_destination()" class="formbutton">
+
       </form>
     </div>
     <div id="map_canvas"></div>
