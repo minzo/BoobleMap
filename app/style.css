@@ -1,0 +1,50 @@
+body {
+	background-color: #cceeff;
+    font-family: HiraKakuProN-W3, meiryo, Helvetica, sans-serif;
+}
+
+#dest_form {
+	background-color: #eeeeee;
+    padding: 5px 5px;
+    margin : 10px 0px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 4px #000;
+}
+
+input.pulldown_forms {
+}
+
+input.textforms {
+    font-size : 20px;
+    color     : #777777;
+    width     : 80%;
+    height    : 40px;
+}
+
+input.formbutton {
+    padding: 0px 0px;
+    margin : 0px 0px;
+    width     : 15%;
+    height    : 45px;
+}
+
+#map_canvas {
+    width  : 293px;
+    height : 293px;
+    padding: 0px 5px;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 4px #000;
+}
+
+#out {
+    padding:  0px 5px;
+    margin : 10px 0px;
+    border-style: dashed;
+    border-color: #bbbbbb;
+    border-width: thin;
+	background-color: #eeeeee;
+}
+
+input.current_location {
+    width:100%;
+}

@@ -2,7 +2,10 @@
   "version": "0.1",
   "name": "Booble Map",
   "description": "The navigation system using vibration",
-  "launch_path": "/index.html",
+  "launch_path": "/BoobleMap.html",
+  "icons": {
+    "128": "/BoobleMapIcon.png"
+  },
   "developer": {
     "name": "CHUO-U-OpenProject",
     "url": ""

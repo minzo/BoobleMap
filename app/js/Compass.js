@@ -36,6 +36,12 @@ function compass ( sensor ) {
     if (deg < 0) deg = deg + 360;
     output.innerHTML += "deg from dev dir = " + deg + "</br>";
 
+    output.innerHTML += "vibration" + window.navigator.vibrate;
+
+    //if ( !window.navigator.vibrate ){
+      gSound.setAngle( deg );
+    //}
+    
     if( gCount == 0 ) {
       vibration( deg );
     }

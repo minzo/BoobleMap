@@ -62,7 +62,7 @@ function set_destination () {
 */
 
 function set_destination () {
-  var destination_str = document.destination.destination_text_box.value;
+  var destination_str = document.destination.destination_pulldown.value || document.destination.destination_text_box.value;
   var geocoder = new google.maps.Geocoder();
   console.log(destination_str);
   geocoder.geocode({
